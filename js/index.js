@@ -15,13 +15,25 @@ function login(e){
     let passwordVal = password.value;
 
     if(usuaruioVal == '' || passwordVal == ''){
+        createMensaje('Verifica tus campos', 'danger');
         return;
     }
 
+    if(localStorage.getItem('usuario')){
+        let objeto = JSON.parse(localStorage.getItem('usuario'));
 
+        if(usuaruioVal == objeto.user && passwordVal == objeto.pass){
+            createMensaje('Loging Correcto', 'success');
+        }else{
+           createMensaje('Usuario o Contraseña incorrecta', 'danger');
+        }
+    } else {
+        createMensaje('No se encontro registro', 'danger');
 
-    console.log('el valor para user es:' + usuaruioVal);
-    console.log('el valor para pass e:' + passwordVal);
+    }
+    
+     
+
 
     
     
