@@ -24,6 +24,10 @@ function login(e){
 
         if(usuaruioVal == objeto.user && passwordVal == objeto.pass){
             createMensaje('Loging Correcto', 'success');
+            localStorage.setItem('sesion', 'sctiva')
+            setTimeout(function(){
+                window.open('./inicio.html', '_self');
+            },2000);
         }else{
            createMensaje('Usuario o Contraseña incorrecta', 'danger');
         }
